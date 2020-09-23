@@ -22,6 +22,12 @@ export type StreamChatReactUserType = AnyType & {
   image?: string;
   mutes?: Array<Mute>;
 };
+
+export interface CustomChatProps extends ChatProps {
+  EmojiPicker: React.ElementType<NimblePickerProps> | null;
+  Emoji: React.ElementType<NimbleEmojiProps> | null;
+  emojiData: EmojiMartData;
+}
 export type StreamChatReactChannelType = AnyType & {
   image?: string;
   subtitle?: string;
@@ -1359,7 +1365,9 @@ export class MessageInputSmall extends React.PureComponent<
   any
 > {}
 
-export class Attachment extends React.PureComponent<WrapperAttachmentUIComponentProps> {}
+export class Attachment extends React.PureComponent<
+  WrapperAttachmentUIComponentProps
+> {}
 
 export class ChannelList extends React.PureComponent<ChannelListProps> {}
 export class ChannelListMessenger extends React.PureComponent<

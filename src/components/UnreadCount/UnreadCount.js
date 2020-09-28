@@ -7,13 +7,13 @@ const UnreadCount = () => {
 
   const handleEvent = (e) => {
     if (e?.total_unread_count >= 0) {
-      setTotalUnreadCount(e.total_unread_count)
-    };
+      setTotalUnreadCount(e.total_unread_count);
+    }
   };
 
   useEffect(() => {
     if (!client) return;
-    
+
     setTotalUnreadCount(client.user.total_unread_count);
     client.on(handleEvent);
   }, [client]);

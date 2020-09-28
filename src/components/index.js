@@ -28,5 +28,6 @@ export * from './SafeAnchor';
 export * from './Thread';
 export * from './Tooltip';
 export * from './TypingIndicator';
+export * from './UnreadCount';
 export * from './UserItem';
 export * from './Window';

@@ -444,6 +444,8 @@ export interface AvatarProps {
 export interface DateSeparatorProps extends TranslationContextValue {
   /** The date to format */
   date: Date;
+  /** If following messages are not new */
+  unread?: boolean;
   /** Set the position of the date in the separator */
   position?: 'left' | 'center' | 'right';
   /** Override the default formatting of the date. This is a function that has access to the original date object. Returns a string or Node  */
@@ -689,7 +691,10 @@ export interface ExtendedAttachment extends Client.Attachment {
   id?: string;
   asset_url?: string;
   mime_type?: string;
-  images?: Array;
+  images?: Array<{
+    image_url?: string;
+    thumb_url?: string;
+  }>;
 }
 
 export interface BaseAttachmentUIComponentProps {
@@ -1238,6 +1243,7 @@ export const MessageCommerce: React.FC<MessageCommerceProps>;
 
 export interface MessageLivestreamProps extends MessageUIComponentProps {}
 export interface MessageLivestreamActionProps {
+  addNotification?(notificationText: string, type: string): any;
   initialMessage?: boolean;
   message?: Client.MessageResponse;
   tDateTimeParser?(datetime: string | number): Dayjs.Dayjs;

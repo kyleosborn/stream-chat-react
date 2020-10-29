@@ -1,0 +1,31 @@
+.live-event-footer__container {
+  display: flex;
+  flex-direction: column;
+  height: 129px;
+  width: 320px;
+  justify-content: space-between;
+}
+.live-event-footer__top {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+  justify-content: space-around;
+  padding-top: 15px;
+  align-items: center;
+}
+.live-event-footer__bottom {
+  display: flex;
+  flex: 1;
+}
+
+.live-event-footer__input {
+  height: 52px;
+  width: 238px;
+}
+.live-event-footer__avatar {
+  height: 42px;
+  width: 42px;
+  border-radius: 1000px;
+
+  background-color: blueviolet;
+}

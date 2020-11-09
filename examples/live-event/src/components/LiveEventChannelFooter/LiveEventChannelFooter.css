@@ -15,6 +15,8 @@
 }
 .live-event-footer__bottom {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
   flex: 1;
 }
 
@@ -22,10 +24,10 @@
   height: 52px;
   width: 238px;
 }
-.live-event-footer__avatar {
+/* .live-event-footer__avatar {
   height: 42px;
   width: 42px;
   border-radius: 1000px;
 
   background-color: blueviolet;
-}
+} */

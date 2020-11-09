@@ -65,3 +65,98 @@ body {
   max-height: 608px;
   background-color: #f1faff;
 }
+.str-chat__thread {
+  max-height: 800px;
+  background-color: #f1faff;
+  max-width: 320px;
+}
+
+.str-chat__thread-list {
+  width: 320px;
+}
+
+.str-chat__thread-start {
+  display: none;
+}
+
+.str-chat__message-livestream--initial-message {
+  height: 79px;
+  width: 320px;
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 120%;
+  /* or 17px */
+  background: #f1faff;
+  box-shadow: inset 0px -1px 0px #bed5e4;
+  margin-left: 0px;
+  padding-left: 10px;
+}
+.str-chat__thread-list {
+  background: #f1faff;
+  padding-top: 0px;
+}
+.str-chat-channel .str-chat__container {
+  height: 800px;
+}
+.str-chat__thread-header {
+  background-color: white !important;
+  width: 320px;
+  padding: 0 20px;
+}
+.str-chat__thread-header-details {
+  font-family: Helvetica Neue, sans-serif;
+  display: flex;
+  flex-direction: row;
+  width: 147px;
+  justify-content: space-between;
+}
+
+.str-chat__thread-header-details strong {
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  /* identical to box height, or 16px */
+
+  color: #333333;
+}
+.str-chat__thread-header-details small {
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 100%;
+  /* identical to box height, or 14px */
+
+  color: rgba(44, 44, 48, 0.65);
+}
+/* .str-chat__square-button {
+  background: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.2414 0.7586C16.2299 -0.252867 14.59 -0.252867 13.5786 0.7586L9 5.33715L4.42144 0.7586C3.40998 -0.252866 1.77007 -0.252867 0.7586 0.7586C-0.252866 1.77007 -0.252866 3.40998 0.7586 4.42144L5.33716 9L0.7586 13.5786C-0.252867 14.59 -0.252866 16.2299 0.7586 17.2414C1.77007 18.2529 3.40998 18.2529 4.42144 17.2414L9 12.6628L13.5786 17.2414C14.59 18.2529 16.2299 18.2529 17.2414 17.2414C18.2529 16.2299 18.2529 14.59 17.2414 13.5786L12.6628 9L17.2414 4.42144C18.2529 3.40998 18.2529 1.77007 17.2414 0.7586Z' fill='%238CB0CA' fill-opacity='0.65'/%3E%3C/svg%3E%0A");
+} */
+.str-chat__message-livestream:hover {
+  box-shadow: none;
+  border: 0px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+}
+.str-chat__message-livestream:hover .str-chat__message-livestream-actions {
+  background: #ffffff;
+  border: 1px solid #bed5e4;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  width: 80px;
+}
+.str-chat__message-livestream-time {
+  display: none;
+}
+.str-chat__message-livestream--initial-message
+  .live-event__simple-reactions-list {
+  display: none;
+}
+.str-chat__message-livestream--initial-message .str-chat__avatar {
+  display: flex;
+}

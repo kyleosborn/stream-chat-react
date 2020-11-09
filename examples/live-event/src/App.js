@@ -1,18 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 import { StreamChat } from 'stream-chat';
-import {
-  Chat,
-  Channel,
-  MessageList,
-  MessageLivestream,
-  Thread,
-  Window,
-} from 'stream-chat-react';
+import { Chat, Channel, Window, Thread } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/index.css';
 import './App.css';
-
-import video from './assets/video.png';
 import { LiveEventChannelFooter } from './components/LiveEventChannelFooter/LiveEventChannelFooter';
 import { LiveEventChannelHeader } from './components/LiveEventChannelHeader/LiveEventChannelHeader';
 import { LiveEventMessage } from './components/LiveEventMessage/LiveEventMessage';
@@ -28,7 +19,7 @@ const userToken =
 
 const App = () => {
   const chatClient = new StreamChat(apiKey);
-  chatClient.setUser({ id: user }, userToken);
+  chatClient.setUser({ id: user, role: 'moderator' }, userToken);
   const channel = chatClient.channel('livestream', channelName, {
     image:
       'https://images.unsplash.com/photo-1512138664757-360e0aad5132?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80',
@@ -63,9 +54,12 @@ const App = () => {
             <Channel channel={channel}>
               <Window hideOnThread>
                 <LiveEventChannelHeader />
-                <MessageList noGroupByUser Message={LiveEventMessage} />
-                <LiveEventChannelFooter />
               </Window>
+              <Thread
+                additionalMessageListProps={{ TypingIndicator: () => null }}
+                Message={LiveEventMessage}
+                MessageInput={LiveEventChannelFooter}
+              />
             </Channel>
           </div>
         </div>

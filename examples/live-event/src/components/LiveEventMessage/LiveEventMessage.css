@@ -41,3 +41,9 @@
 .str-chat__date-separator {
   display: none;
 }
+.live-event-message__container__pinned {
+  background: rgba(255, 199, 0, 0.15);
+}
+.pinned-messages__container .pin-icon .pin-text {
+  display: none;
+}

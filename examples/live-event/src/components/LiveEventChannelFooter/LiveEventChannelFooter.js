@@ -28,14 +28,14 @@ export const LiveEventChannelFooter = () => {
           </div>
           <h3>Moderator Controls</h3>
         </div>
-        {showModal ? (
+        {showModal && (
           <SloMoModal
             setToggleSwitchPosition={setToggleSwitchPosition}
             sloMoDelay={sloMoDelay}
             setSloMoDelay={setSloMoDelay}
             toggleSwitchPosition={toggleSwitchPosition}
           />
-        ) : null}
+        )}
         <div onClick={() => setShowModal(!showModal)}>
           <MeatballMenu />
         </div>

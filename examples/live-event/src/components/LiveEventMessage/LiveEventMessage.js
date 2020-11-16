@@ -42,7 +42,7 @@ export const LiveEventMessage = (props) => {
         style={{ marginLeft: '15px' }}
         onClick={pinChecker}
       >
-        {isMessagePinned || isPinned ? <PinIcon /> : null}
+        {(isMessagePinned || isPinned) && <PinIcon />}
       </div>
       <div className="new-actions">
         <MessageActions

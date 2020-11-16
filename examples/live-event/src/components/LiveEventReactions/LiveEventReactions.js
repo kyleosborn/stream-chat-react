@@ -60,10 +60,7 @@ export const LiveEventReactions = ({
             key={`${emojiDefinition?.id}-${i}`}
             onClick={() => handleReaction && handleReaction(reactionType)}
           >
-            <span
-              //   className="fuckit"
-              onMouseEnter={() => setTooltipReactionType(reactionType)}
-            >
+            <span onMouseEnter={() => setTooltipReactionType(reactionType)}>
               <NimbleEmoji
                 // emoji-mart type defs don't support spriteSheet use case
                 // (but implementation does)

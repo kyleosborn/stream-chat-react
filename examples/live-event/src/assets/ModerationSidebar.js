@@ -326,7 +326,7 @@ export const ModerationSidebar = () => (
         width="156"
         height="142"
         filterUnits="userSpaceOnUse"
-        colorInterpolation-filters="sRGB"
+        colorinterpolation-filters="sRGB"
       >
         <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
@@ -367,7 +367,7 @@ export const ModerationSidebar = () => (
         width="156"
         height="142"
         filterUnits="userSpaceOnUse"
-        colorInterpolation-filters="sRGB"
+        colorinterpolation-filters="sRGB"
       >
         <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { AdminBadge } from '../../assets/AdminBadge';
 import { AvatarRobert } from '../../assets/AvatarRobert';
 import { MeatballMenu } from '../../assets/MeatballMenu';
 import { SloMoModal } from '../SloMoModal/SloMoModal';
 import './LiveEventChannelFooter.css';
-import { LiveStreamMessageInput } from './LiveStreamMessageInput';
+import { LiveEventMessageInput } from './LiveEventMessageInput';
 
 export const LiveEventChannelFooter = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,11 +18,14 @@ export const LiveEventChannelFooter = () => {
           <AvatarRobert />
         </div>
         <div className="live-event-footer__input">
-          <LiveStreamMessageInput focus sloMoDelay={sloMoDelay} />
+          <LiveEventMessageInput focus sloMoDelay={sloMoDelay} />
         </div>
       </div>
       <div className="live-event-footer__bottom">
-        <div>
+        <div className="live-event-footer__bottom-left">
+          <div className="live-event-footer__bottom-badge">
+            <AdminBadge />
+          </div>
           <h3>Moderator Controls</h3>
         </div>
         {showModal ? (

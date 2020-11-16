@@ -110,7 +110,7 @@ body {
   display: flex;
   flex-direction: row;
   width: 147px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .str-chat__thread-header-details strong {
@@ -139,6 +139,11 @@ body {
 .str-chat__message-livestream:hover {
   box-shadow: none;
   border: 0px;
+  border-radius: 0px;
+}
+.livestream.str-chat .str-chat__li--single:hover {
+  box-shadow: none;
+  border: 0px;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 0px;
 }
@@ -153,10 +158,157 @@ body {
 .str-chat__message-livestream-time {
   display: none;
 }
-.str-chat__message-livestream--initial-message
+/* .str-chat__message-livestream--initial-message
   .live-event__simple-reactions-list {
   display: none;
-}
+} */
 .str-chat__message-livestream--initial-message .str-chat__avatar {
   display: flex;
+}
+.livestream.str-chat .str-chat__li--single {
+  width: 320px;
+}
+.livestream.str-chat .str-chat__list {
+  padding: 0px;
+}
+.str-chat__message-livestream-left {
+  width: 51px;
+  display: flex;
+  justify-content: center;
+}
+.str-chat__message-livestream-left .str-chat__avatar {
+  margin-left: 15px;
+  margin-right: 6px;
+}
+.str-chat__message-livestream-right {
+  width: 245px;
+}
+
+.str-chat__message-attachment--media {
+  width: 245px;
+}
+.str-chat__message-livestream-author strong {
+  font-weight: normal;
+}
+
+.str-chat__message-replies-count-button {
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 100%;
+  /* identical to box height, or 11px */
+  color: #19a0ff;
+}
+.str-chat__message-livestream:hover {
+  border: 1px solid rgba(0, 0, 0, 0.01);
+}
+.str-chat__message-livestream-left .str-chat__avatar {
+  margin-top: 6px;
+}
+.str-chat__message-livestream:hover .str-chat__message-livestream-actions {
+  display: none;
+}
+.str-chat__message-livestream-actions .str-chat__message-actions-box--open {
+  display: none;
+}
+.new-actions {
+  display: none;
+  height: 0px;
+}
+.livestream.str-chat .str-chat__li--single:hover .new-actions {
+  display: flex;
+}
+.livestream.str-chat
+  .str-chat__li--single:hover
+  .str-chat__message-livestream-actions {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #bed5e4;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  width: 80px;
+  margin-right: 7px;
+}
+.new-actions .str-chat__message-simple__actions__action--options {
+  display: flex;
+}
+.new-actions .str-chat__message-livestream {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  width: 100%;
+  margin: 0 0;
+  padding: 10px 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  position: relative;
+}
+.new-actions .str-chat__message-livestream-actions {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.07);
+  width: 141px;
+  height: 24px;
+  padding: 0 4px;
+  position: absolute;
+  top: -12px;
+  right: 0;
+  border-radius: 24px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+.new-actions .str-chat__message-simple__actions__action svg {
+  position: absolute;
+  top: -1px;
+  left: 285px;
+  z-index: 999;
+}
+.new-actions .str-chat__message-actions-box {
+  position: absolute;
+  display: none;
+  bottom: -104px;
+  left: 180px;
+  width: 120px;
+  background: #fff;
+  border-radius: 0px;
+  background-image: linear-gradient(
+    -180deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.22), 0 1px 0 0 rgba(0, 0, 0, 0.08),
+    0 1px 8px 0 rgba(0, 0, 0, 0.05);
+  z-index: 999;
+}
+.new-actions .str-chat__message-actions-box--open {
+  display: block;
+}
+.str-chat__thread-list {
+  box-shadow: inset 0px -1px 0px #bed5e4;
+}
+.str-chat__message-simple__actions__action {
+  margin-top: 0px;
+}
+.str-chat__thread-list .str-chat__list .str-chat__message-livestream:hover {
+  box-shadow: none;
+  border: 0px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+}
+.str-chat__message-livestream--initial-message:hover {
+  height: 79px;
+  width: 320px;
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 120%;
+  background: #f1faff;
+  box-shadow: inset 0px -1px 0px #bed5e4;
+  margin-left: 0px;
+}
+
+.livestream.str-chat .str-chat__list {
+  width: 320px;
 }

@@ -12,19 +12,20 @@ export const LiveEventMessage = (props) => {
   const [isPinned, setIsPinned] = useState(isMessagePinned);
 
   const pinChecker = () => {
-    setPinnedMessages((prevMessages) => {
-      if (!isPinned) {
-        setIsPinned(true);
-        return {
-          ...prevMessages,
-          [message.id]: message,
-        };
-      }
+    if (!isPinned) {
+      setIsPinned(true);
+      setPinnedMessages((prevMessages) => ({
+        ...prevMessages,
+        [message.id]: message,
+      }));
+    } else {
       setIsPinned(false);
-      const copy = prevMessages;
-      delete copy[message.id];
-      return copy;
-    });
+      setPinnedMessages((prevMessages) => {
+        const copy = { ...prevMessages };
+        delete copy[message.id];
+        return copy;
+      });
+    }
   };
 
   const getMessageActions = () => ['edit', 'delete', 'react', 'reply', 'mute'];
@@ -42,7 +43,7 @@ export const LiveEventMessage = (props) => {
         style={{ marginLeft: '15px' }}
         onClick={pinChecker}
       >
-        {(isMessagePinned || isPinned) && <PinIcon />}
+        {isPinned && <PinIcon />}
       </div>
       <div className="new-actions">
         <MessageActions

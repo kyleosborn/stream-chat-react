@@ -22,9 +22,9 @@ export const LiveEventChannelContainer = ({ tab }) => {
               Message={(props) => (
                 <LiveEventMessage
                   {...props}
-                  setPinnedMessages={setPinnedMessages}
                   pinnedMessages={pinnedMessages}
                   pinnedMessagesIds={pinnedMessagesIds}
+                  setPinnedMessages={setPinnedMessages}
                 />
               )}
             />

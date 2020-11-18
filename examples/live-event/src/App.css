@@ -134,9 +134,7 @@ body {
 
   color: rgba(44, 44, 48, 0.65);
 }
-/* .str-chat__square-button {
-  background: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.2414 0.7586C16.2299 -0.252867 14.59 -0.252867 13.5786 0.7586L9 5.33715L4.42144 0.7586C3.40998 -0.252866 1.77007 -0.252867 0.7586 0.7586C-0.252866 1.77007 -0.252866 3.40998 0.7586 4.42144L5.33716 9L0.7586 13.5786C-0.252867 14.59 -0.252866 16.2299 0.7586 17.2414C1.77007 18.2529 3.40998 18.2529 4.42144 17.2414L9 12.6628L13.5786 17.2414C14.59 18.2529 16.2299 18.2529 17.2414 17.2414C18.2529 16.2299 18.2529 14.59 17.2414 13.5786L12.6628 9L17.2414 4.42144C18.2529 3.40998 18.2529 1.77007 17.2414 0.7586Z' fill='%238CB0CA' fill-opacity='0.65'/%3E%3C/svg%3E%0A");
-} */
+
 .str-chat__message-livestream:hover {
   box-shadow: none;
   border: 0px;
@@ -333,4 +331,39 @@ body {
 .str-chat__square-button svg {
   fill: rgba(140, 176, 202, 0.65);
   transform: scale(2);
+}
+
+/* Edit Message */
+
+.str-chat__message-team--editing {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: none;
+}
+
+.str-chat__edit-message-form .str-chat__textarea {
+  width: 238px;
+  height: 40px;
+}
+.str-chat__edit-message-form button {
+  display: none;
+}
+.str-chat__message-team--editing .str-chat__message-team-form-footer {
+  display: none;
+}
+
+.str-chat__message-team--editing .str-chat__message-team-meta {
+  height: 30px;
+  width: 30px;
+}
+.str-chat__message-team .str-chat__avatar {
+  height: 30px !important;
+  width: 30px !important;
+  margin: 15px;
+}
+.str-chat__message-team--editing
+  .new-actions
+  .livestream.str-chat
+  .str-chat__li--single:hover {
+  display: none;
 }

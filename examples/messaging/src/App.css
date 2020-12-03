@@ -7,6 +7,7 @@ body {
 
 #root {
   height: 100%;
+  border-radius: 16px;
 }
 
 .str-chat-channel-list {
@@ -26,8 +27,12 @@ body {
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
+.messaging.str-chat .str-chat__list {
+  padding: 0 30px 0;
+}
+
 .messaging.str-chat .str-chat__thread {
-  border-left: 1px solid rgba(0,0,0,0.09);
+  border-left: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: 0px 10px 0 0;
 }
 
@@ -48,6 +53,12 @@ body {
   padding: 20px 0 0 0px;
 }
 
-.str-chat-channel.messaging .str-chat__main-panel:not(:last-child) .messaging__channel-header {
+.str-chat-channel.messaging
+  .str-chat__main-panel:not(:last-child)
+  .messaging__channel-header {
   border-radius: 10px 0px 0px 0px;
+}
+
+.str-chat__message-simple-status {
+  display: none;
 }

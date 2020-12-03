@@ -5,7 +5,6 @@ import {
   Channel,
   ChannelList,
   ChannelPreviewMessenger,
-  // InfiniteScrollPaginator,
   MessageList,
   MessageInput,
   MessageSimple,
@@ -25,12 +24,11 @@ import {
 } from './components';
 
 const urlParams = new URLSearchParams(window.location.search);
-const apiKey = urlParams.get('apikey') || 'qk4nn7rpcn75';
-const user = urlParams.get('user') || 'example-user';
+const apiKey = urlParams.get('apikey') || process.env.REACT_APP_STREAM_KEY;
+const user = urlParams.get('user') || process.env.REACT_APP_USER_ID;
 const theme = urlParams.get('theme') || 'dark';
 const userToken =
-  urlParams.get('user_token') ||
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZXhhbXBsZS11c2VyIn0.HlC0dMKL43y3K_XbfvQS_Yc3V314HU4Z7LrBLil777g';
+  urlParams.get('user_token') || process.env.REACT_APP_USER_TOKEN;
 
 const filters = { type: 'messaging', members: { $in: [user] } };
 const options = { state: true, watch: true, presence: true, limit: 10 };
@@ -55,13 +53,10 @@ const App = () => {
         List={(props) => (
           <MessagingChannelList
             {...props}
-            onCreateChannel={() => setIsCreating(true)}
+            onCreateChannel={() => setIsCreating(!isCreating)}
           />
         )}
         Preview={ChannelPreviewMessenger}
-        // Paginator={(props) => (
-        //   <InfiniteScrollPaginator threshold={10} {...props} />
-        // )}
       />
       <Channel maxNumberOfFiles={10} multipleUploads={true}>
         <CreateChannel

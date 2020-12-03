@@ -1,30 +1,41 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
-import { Avatar, ChannelContext } from 'stream-chat-react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { Avatar, ChatContext } from 'stream-chat-react';
 
 import { XButton } from '../../assets';
 
 import './CreateChannel.css';
 
 const CreateChannel = ({ onClose, visible }) => {
-  const { client } = useContext(ChannelContext);
-  const [users, setUsers] = useState();
+  const { client, setActiveChannel } = useContext(ChatContext);
+
+  const [inputText, setInputText] = useState('');
+  const [resultsOpen, setResultsOpen] = useState(false);
   const [searching, setSearching] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState([]);
-  const [inputText, setInputText] = useState('');
+  const [users, setUsers] = useState([]);
+
   const inputRef = useRef();
+
+  document.addEventListener('click', () => {
+    if (resultsOpen) setInputText('');
+  });
 
   useEffect(() => {
     const findUsers = async () => {
       if (!searching) {
         setSearching(true);
+
         try {
           const response = await client.queryUsers({
             name: { $autocomplete: inputText },
           });
+
+          setResultsOpen(true);
           setUsers(response.users);
         } catch (error) {
           console.log({ error });
         }
+
         setSearching(false);
       }
     };
@@ -39,14 +50,18 @@ const CreateChannel = ({ onClose, visible }) => {
     const conversation = await client.channel('messaging', {
       members: [...selectedUsersIds, 'example-user'],
     });
+
     await conversation.watch();
+
+    setActiveChannel(conversation);
     setSelectedUsers([]);
-    setUsers();
+    setUsers([]);
     onClose();
   };
 
   const addUser = (u) => {
     setSelectedUsers([...selectedUsers, u]);
+    setResultsOpen(false);
     setInputText('');
     inputRef.current.focus();
   };
@@ -56,11 +71,6 @@ const CreateChannel = ({ onClose, visible }) => {
     setSelectedUsers(newUsers);
     inputRef.current.focus();
   };
-
-  // const onSearch = (e) => {
-  //   e.preventDefault();
-  //   findUsers(e);
-  // };
 
   // const handleKeyDown = useCallback((e) => {
   //   // check for up(38) or down(40) key
@@ -119,23 +129,25 @@ const CreateChannel = ({ onClose, visible }) => {
           Start chat
         </button>
       </header>
-      <main>
-        <ul className="messaging-create-channel__user-results">
-          {!!users?.length && (
-            <div>
-              {users.slice(0, 6).map((user) => (
-                <div
-                  className="messaging-create-channel__user-result"
-                  onClick={() => addUser(user)}
-                  key={user.id}
-                >
-                  <UserResult user={user} />
-                </div>
-              ))}
-            </div>
-          )}
-        </ul>
-      </main>
+      {inputText && (
+        <main>
+          <ul className="messaging-create-channel__user-results">
+            {!!users?.length && (
+              <div>
+                {users.slice(0, 6).map((user) => (
+                  <div
+                    className="messaging-create-channel__user-result"
+                    onClick={() => addUser(user)}
+                    key={user.id}
+                  >
+                    <UserResult user={user} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </ul>
+        </main>
+      )}
     </div>
   );
 };

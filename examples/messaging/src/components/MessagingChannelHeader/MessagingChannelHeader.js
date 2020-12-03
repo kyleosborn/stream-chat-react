@@ -13,11 +13,14 @@ const MessagingChannelHeader = () => {
   useEffect(() => {
     const currentUserId = client?.user?.id;
     const channelName = channel?.data?.name;
+
     if (channelName) return channelName;
+
     const members = Object.values(channel.state?.members || {});
     const otherMembers = members.filter(
       (member) => member.user?.id !== currentUserId,
     );
+
     return setTitle(
       otherMembers
         .map((member) => member.user?.name || member.user?.id || 'Unnamed User')
@@ -27,12 +30,7 @@ const MessagingChannelHeader = () => {
 
   return (
     <div className="messaging__channel-header">
-      <Avatar
-        size={32}
-        // name={displayTitle}
-        // image={displayImage}
-        // images={groupImages}
-      />
+      <Avatar size={32} />
       <div className="messaging__channel-header__right">
         <div className="channel-header__name">{title}</div>
         <TypingIndicator />

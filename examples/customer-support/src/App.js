@@ -13,22 +13,19 @@ import { AgentHeader } from './components/AgentHeader/AgentHeader';
 import { AgentLoading } from './components/AgentLoading/AgentLoading';
 import { CustomerApp } from './CustomerApp';
 
-const apiKey = 'vw9vb798xcy6';
+const apiKey = process.env.REACT_APP_STREAM_KEY;
 const agentChannelId = `agent-demo-${uuidv4()}`;
 const customerChannelId = `customer-demo-${uuidv4()}`;
 const theme = 'light';
 
-const agentUserId = 'daniel-smith';
-const agentUserToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGFuaWVsLXNtaXRoIn0.YFYmT1pwXjeVdhaoFm9yBW3a1jC9cMUIoaRY9XXCw-g';
+const agentUserId = process.env.REACT_APP_AGENT_ID;
+const agentUserToken = process.env.REACT_APP_AGENT_TOKEN;
 
-const customerUserId = 'kevin-rosen';
-const customerUserToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoia2V2aW4tcm9zZW4ifQ.v5xTiLl8M1UL8xzOJrtJyIH7FD7ON2ojyc2ouhI0VfE';
+const customerUserId = process.env.REACT_APP_CUSTOMER_ID;
+const customerUserToken = process.env.REACT_APP_CUSTOMER_TOKEN;
 
-const previousUserId = 'jen-alexander';
-const previousUserToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamVuLWFsZXhhbmRlciJ9.BqlhLnOJlJ-h-yAArJqdr0m7YGT-Uz_JMwv51DcoX_w';
+const previousUserId = process.env.REACT_APP_PREVIOUS_ID;
+const previousUserToken = process.env.REACT_APP_PREVIOUS_TOKEN;
 
 const customerClient = new StreamChat(apiKey);
 customerClient.setUser(

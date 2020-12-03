@@ -26,9 +26,13 @@ const CreateChannel = ({ onClose, visible }) => {
         setSearching(true);
 
         try {
-          const response = await client.queryUsers({
-            name: { $autocomplete: inputText },
-          });
+          const response = await client.queryUsers(
+            {
+              name: { $autocomplete: inputText },
+            },
+            { id: 1 },
+            { limit: 10 },
+          );
 
           setResultsOpen(true);
           setUsers(response.users);
@@ -42,13 +46,15 @@ const CreateChannel = ({ onClose, visible }) => {
     if (inputText) {
       findUsers();
     }
-  }, [client, inputText, searching]);
+  }, [inputText]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const newChannel = async () => {
+  const createChannel = async () => {
     const selectedUsersIds = selectedUsers.map((u) => u.id);
 
+    if (!selectedUsersIds.length) return;
+
     const conversation = await client.channel('messaging', {
-      members: [...selectedUsersIds, 'example-user'],
+      members: [...selectedUsersIds, client.userID],
     });
 
     await conversation.watch();
@@ -125,7 +131,7 @@ const CreateChannel = ({ onClose, visible }) => {
             />
           </form>
         </div>
-        <button className="create-channel-button" onClick={newChannel}>
+        <button className="create-channel-button" onClick={createChannel}>
           Start chat
         </button>
       </header>
@@ -134,7 +140,7 @@ const CreateChannel = ({ onClose, visible }) => {
           <ul className="messaging-create-channel__user-results">
             {!!users?.length && (
               <div>
-                {users.slice(0, 6).map((user) => (
+                {users.map((user) => (
                   <div
                     className="messaging-create-channel__user-result"
                     onClick={() => addUser(user)}

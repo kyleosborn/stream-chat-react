@@ -11,12 +11,11 @@ import { ChannelListContainer } from './components/ChannelListContainer/ChannelL
 import { ColorSlider } from './components/ColorSlider/ColorSlider';
 
 const urlParams = new URLSearchParams(window.location.search);
-const apiKey = urlParams.get('apikey') || 'ax8y5fkbatca';
-const user = urlParams.get('user') || 'example-user';
+const apiKey = urlParams.get('apikey') || process.env.REACT_APP_STREAM_KEY;
+const user = urlParams.get('user') || process.env.REACT_APP_USER_ID;
 const theme = urlParams.get('theme') || 'light';
 const userToken =
-  urlParams.get('user_token') ||
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZXhhbXBsZS11c2VyIn0.Q8uT3JdCq7CaSPgO5cR0H5odeWs0NPu9NaHEaNT6Ic0';
+  urlParams.get('user_token') || process.env.REACT_APP_USER_TOKEN;
 
 const i18nInstance = new Streami18n({
   language: 'en',

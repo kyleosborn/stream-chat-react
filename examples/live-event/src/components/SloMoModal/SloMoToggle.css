@@ -68,9 +68,7 @@
 }
 
 .slo-mo-toggle__container {
-  height: 0;
-  width: 0;
-  visibility: hidden;
+  display: none;
 }
 
 .slo-mo-toggle__label {
@@ -89,7 +87,7 @@
 .slo-mo-toggle__label .slo-mo-toggle__button {
   content: '';
   position: absolute;
-  bottom: 3px;
+  bottom: 2px;
   left: 2px;
   width: 29px;
   height: 29px;

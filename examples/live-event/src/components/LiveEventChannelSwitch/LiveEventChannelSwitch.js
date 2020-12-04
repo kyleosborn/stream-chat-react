@@ -4,6 +4,9 @@ import './LiveEventChannelSwitch.css';
 import { LiveChat } from '../../assets/LiveChat';
 import { Pins } from '../../assets/Pins';
 import { Attendees } from '../../assets/Attendees';
+import { LiveChatBlue } from '../../assets/LiveChatBlue';
+import { PinsBlue } from '../../assets/PinsBlue';
+import { AttendeesBlue } from '../../assets/AttendeesBlue';
 import { LiveEventChannelContainer } from '../LiveEventChannelContainer/LiveEventChannelContainer';
 
 export const LiveEventChannelSwitch = () => {
@@ -13,13 +16,13 @@ export const LiveEventChannelSwitch = () => {
     <div>
       <div className="live-event-channel-switch__container">
         <div onClick={() => setTab(1)}>
-          <LiveChat fill={tab === 1 ? '#00A3FF' : '#8CB0CA'} />
+          {tab === 1 ? <LiveChatBlue /> : <LiveChat />}
         </div>
         <div onClick={() => setTab(2)}>
-          <Pins fill={tab === 2 ? '#00A3FF' : '#8CB0CA'} />
+          {tab === 2 ? <PinsBlue /> : <Pins />}
         </div>
         <div onClick={() => setTab(3)}>
-          <Attendees fill={tab === 3 ? '#00A3FF' : '#8CB0CA'} />
+          {tab === 3 ? <AttendeesBlue /> : <Attendees />}
         </div>
       </div>
       <LiveEventChannelContainer tab={tab} />

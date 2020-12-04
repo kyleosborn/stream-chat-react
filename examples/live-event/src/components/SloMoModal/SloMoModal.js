@@ -40,7 +40,7 @@ export const SloMoModal = ({
         </div>
       </div>
       <div className="slo-mo-modal__container__bottom ">
-        <div> Seconds 1-100</div>
+        <div>Seconds 1-100</div>
         <div>
           <input
             onChange={handleChange}

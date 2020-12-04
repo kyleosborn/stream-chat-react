@@ -4,6 +4,7 @@
   height: 129px;
   width: 320px;
   justify-content: space-between;
+  border-top: 1px solid #bed5e4;
 }
 .live-event-footer__top {
   display: flex;

@@ -10,6 +10,7 @@ import {
 } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/index.css';
 import './App.css';
+// import { LiveVideoIcon } from './assets/LiveVideoIcon';
 import { LiveEventChannelFooter } from './components/LiveEventChannelFooter/LiveEventChannelFooter';
 import { LiveEventChannelSwitch } from './components/LiveEventChannelSwitch/LiveEventChannelSwitch';
 import { LiveEventMessage } from './components/LiveEventMessage/LiveEventMessage';
@@ -50,7 +51,6 @@ const App = () => {
         display: 'flex',
         height: '800px',
         width: '1130px',
-        margin: '100px',
         boxShadow: '0px 2px 30px rgba(0, 0, 0, 0.1)',
         borderRadius: '16px',
       }}
@@ -70,14 +70,19 @@ const App = () => {
                 overflow: 'hidden',
               }}
             >
-              <iframe
-                width="810px"
-                height="473px"
-                src="https://www.youtube.com/embed/_J4QPz52Sfo"
-                frameBorder="0px"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <div>
+                {/* <div className="live-video-icon">
+                  <LiveVideoIcon />
+                </div> */}
+                <iframe
+                  width="810px"
+                  height="473px"
+                  src="https://www.youtube.com/embed/_J4QPz52Sfo?autoplay=1&mute=1"
+                  frameBorder="0px"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
               <img
                 style={{ height: '295px', width: '810px' }}
                 // eslint-disable-next-line global-require

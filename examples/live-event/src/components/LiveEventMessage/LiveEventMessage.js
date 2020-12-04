@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { MessageLivestream, MessageActions } from 'stream-chat-react';
+import { OnlineIndicator } from '../../assets/OnlineIndicator';
 import { PinIcon } from '../../assets/PinIcon';
 import { LiveEventReactions } from '../LiveEventReactions/LiveEventReactions';
 
@@ -10,6 +11,8 @@ export const LiveEventMessage = (props) => {
   const { message, pinnedMessagesIds, setPinnedMessages } = props;
   const isMessagePinned = pinnedMessagesIds?.find((id) => id === message.id);
   const [isPinned, setIsPinned] = useState(isMessagePinned);
+
+  const onlineStatus = props.message.user.online;
 
   const pinChecker = () => {
     if (!isPinned) {
@@ -52,7 +55,14 @@ export const LiveEventMessage = (props) => {
           getMessageActions={getMessageActions}
         />
       </div>
-      <MessageLivestream {...props} ReactionsList={LiveEventReactions} />
+      <div>
+        {onlineStatus && (
+          <div className="online-indicator">
+            <OnlineIndicator />
+          </div>
+        )}
+        <MessageLivestream {...props} ReactionsList={LiveEventReactions} />
+      </div>
     </div>
   );
 };

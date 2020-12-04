@@ -29,6 +29,9 @@
   line-height: 120%;
   color: #2c2c30;
 }
+.str-chat.dark .str-chat__message-livestream-content {
+  color: red;
+}
 
 .str-chat__avatar {
   position: absolute;
@@ -46,4 +49,37 @@
 }
 .pinned-messages__container .pin-icon .pin-text {
   display: none;
+}
+
+/* User Online Icon  */
+
+.str-chat__message-livestream-left {
+  position: relative;
+}
+
+.online-indicator {
+  position: relative;
+  top: 20px;
+  right: -38px;
+  z-index: 9;
+  height: 0px;
+}
+
+.str-chat__thread-list
+  .str-chat__message-livestream--initial-message
+  .online-indicator {
+  top: 40px;
+}
+#root
+  > div
+  > div
+  > div:nth-child(2)
+  > div
+  > div
+  > div
+  > div.str-chat__thread-list
+  > div.live-event-message__container__unpinned
+  > div:nth-child(3)
+  > div.online-indicator {
+  top: 40px;
 }

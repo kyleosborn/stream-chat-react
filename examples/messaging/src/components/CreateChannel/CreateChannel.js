@@ -162,7 +162,7 @@ const UserResult = ({ user }) => {
   return (
     <li className="messaging-create-channel__user-result">
       <div className="messaging-create-channel__user-result__avatar">
-        <Avatar />
+        <Avatar image={user.image} size="40" />
       </div>
       <div className="messaging-create-channel__user-result__details">
         <span>{user.name}</span>

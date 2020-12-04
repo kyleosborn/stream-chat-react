@@ -4,7 +4,6 @@ import {
   Chat,
   Channel,
   ChannelList,
-  ChannelPreviewMessenger,
   MessageList,
   MessageInput,
   MessageSimple,
@@ -20,6 +19,7 @@ import {
   EmptyStateMessage,
   MessagingChannelHeader,
   MessagingChannelList,
+  MessagingChannelPreview,
   MessagingInput,
 } from './components';
 
@@ -56,7 +56,7 @@ const App = () => {
             onCreateChannel={() => setIsCreating(!isCreating)}
           />
         )}
-        Preview={ChannelPreviewMessenger}
+        Preview={MessagingChannelPreview}
       />
       <Channel maxNumberOfFiles={10} multipleUploads={true}>
         <CreateChannel

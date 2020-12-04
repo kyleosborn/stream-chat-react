@@ -27,8 +27,9 @@ body {
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
-.messaging.str-chat .str-chat__list {
+.messaging.str-chat.dark .str-chat__list {
   padding: 0 30px 0;
+  background: #282a2d;
 }
 
 .messaging.str-chat .str-chat__thread {

@@ -60,3 +60,7 @@
 .str-chat.dark .messaging__channel-list__header__button svg path {
   fill: #e9e9ea;
 }
+
+.str-chat__load-more-button {
+  display: none;
+}

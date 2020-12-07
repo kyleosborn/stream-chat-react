@@ -20,8 +20,6 @@ export const TypingIndicator = () => {
     text = `${users[0]} and ${users[1]} are typing`;
   } else if (users.length > 2) {
     text = `${users[0]} and ${users.length - 1} more are typing`;
-  } else {
-    text = '';
   }
 
   return (

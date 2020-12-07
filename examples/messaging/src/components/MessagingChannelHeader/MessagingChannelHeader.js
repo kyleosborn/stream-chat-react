@@ -7,7 +7,11 @@ import { TypingIndicator } from '../TypingIndicator/TypingIndicator';
 
 const getAvatarGroup = (members) => {
   if (members.length === 1) {
-    return <Avatar image={members[0]?.user.image || undefined} size={40} />;
+    return (
+      <div className="messaging__channel-header__avatars">
+        <Avatar image={members[0]?.user.image || undefined} size={40} />;
+      </div>
+    );
   }
 
   if (members.length === 2) {
@@ -116,8 +120,8 @@ const MessagingChannelHeader = () => {
   return (
     <div className="messaging__channel-header">
       {getAvatarGroup(otherMembers)}
+      <div className="channel-header__name">{title}</div>
       <div className="messaging__channel-header__right">
-        <div className="channel-header__name">{title}</div>
         <TypingIndicator />
       </div>
     </div>

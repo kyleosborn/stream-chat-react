@@ -5,8 +5,8 @@
   border-radius: 10px 10px 0px 0px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   min-height: 60px;
-  padding: 16px;
 }
 
 .messaging__channel-header .channel-header__name {
@@ -31,9 +31,7 @@
 }
 
 .messaging__channel-header__right {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin-right: 30px;
 }
 
 .messaging__channel-header__avatars {
@@ -45,6 +43,7 @@
   border-radius: 20px;
   overflow: hidden;
   margin-right: 8px;
+  margin-left: 20px;
 }
 
 .messaging__channel-header__avatars.two div:first-child {

@@ -100,20 +100,33 @@ const getAvatarGroup = (members) => {
 const MessagingChannelHeader = () => {
   const { channel, client } = useContext(ChannelContext);
 
+  const [channelName, setChannelName] = useState(channel?.data.name || '');
+  const [edited, setEdited] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [text, setText] = useState(channel?.data?.name || '');
   const [title, setTitle] = useState('');
 
   const inputRef = useRef();
 
-  const channelName = channel?.data?.name;
   const members = Object.values(channel.state?.members || {}).filter(
     (member) => member.user?.id !== client?.user?.id,
   );
 
+  const updateChannel = async (e) => {
+    if (e) e.preventDefault();
+
+    if (channelName && channelName !== channel.data.name) {
+      await channel.update(
+        { name: channelName },
+        { text: `Channel name changed to ${channelName}` },
+      );
+    }
+
+    setEdited(true);
+    setIsEditing(false);
+  };
+
   useEffect(() => {
     if (isEditing && inputRef.current) {
-      setText('');
       inputRef.current.focus();
     }
   }, [isEditing]);
@@ -130,24 +143,48 @@ const MessagingChannelHeader = () => {
     }
   }, [channelName, members]);
 
+  const EditHeader = () => (
+    <form
+      style={{ flex: 1 }}
+      onSubmit={(e) => {
+        e.preventDefault();
+        inputRef.current.blur();
+      }}
+    >
+      <input
+        autoFocus
+        className="channel-header__edit-input"
+        onBlur={updateChannel}
+        onChange={(e) => setChannelName(e.target.value)}
+        placeholder="Type a new name for the chat"
+        ref={inputRef}
+        value={channelName}
+      />
+    </form>
+  );
+
   return (
     <div className="messaging__channel-header">
       {getAvatarGroup(members)}
       {!isEditing ? (
-        <div className="channel-header__name">{title}</div>
+        <div className="channel-header__name">{channelName || title}</div>
       ) : (
-        <input
-          className="channel-header__edit-input"
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Type a new name for the chat"
-          ref={inputRef}
-          value={text}
-          onSubmit={() => console.log('submitted')}
-        />
+        <EditHeader />
       )}
       <div className="messaging__channel-header__right">
         <TypingIndicator />
-        <ChannelEditIcon {...{ setIsEditing }} />
+        <div
+          onClick={() => {
+            if (edited || isEditing) {
+              setIsEditing(false);
+              setEdited(false);
+            } else {
+              setIsEditing(true);
+            }
+          }}
+        >
+          <ChannelEditIcon />
+        </div>
       </div>
     </div>
   );

@@ -41,6 +41,22 @@ body {
   display: none;
 }
 
+.messaging.str-chat.dark .str-chat__message--system__date {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.messaging.str-chat.dark .str-chat__message--system__text p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.messaging.str-chat.dark .str-chat__message--system__line {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.str-chat__message--system {
+  padding: 20px;
+}
+
 /*  THREAD STYLES */
 
 .messaging.str-chat .str-chat__thread-header {

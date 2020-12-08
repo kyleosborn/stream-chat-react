@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Avatar, ChannelContext } from 'stream-chat-react';
 
 import './MessagingChannelHeader.css';
 
 import { TypingIndicator } from '../TypingIndicator/TypingIndicator';
+
+import { ChannelEditIcon } from '../../assets';
 
 const getAvatarGroup = (members) => {
   if (members.length === 1) {
@@ -98,31 +100,54 @@ const getAvatarGroup = (members) => {
 const MessagingChannelHeader = () => {
   const { channel, client } = useContext(ChannelContext);
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [text, setText] = useState(channel?.data?.name || '');
   const [title, setTitle] = useState('');
 
-  const members = Object.values(channel.state?.members || {});
-  const otherMembers = members.filter(
+  const inputRef = useRef();
+
+  const channelName = channel?.data?.name;
+  const members = Object.values(channel.state?.members || {}).filter(
     (member) => member.user?.id !== client?.user?.id,
   );
 
   useEffect(() => {
-    const channelName = channel?.data?.name;
+    if (isEditing && inputRef.current) {
+      setText('');
+      inputRef.current.focus();
+    }
+  }, [isEditing]);
 
-    if (channelName) return channelName;
-
-    return setTitle(
-      otherMembers
-        .map((member) => member.user?.name || member.user?.id || 'Unnamed User')
-        .join(', '),
-    );
-  }, [channel, otherMembers]);
+  useEffect(() => {
+    if (!channelName) {
+      setTitle(
+        members
+          .map(
+            (member) => member.user?.name || member.user?.id || 'Unnamed User',
+          )
+          .join(', '),
+      );
+    }
+  }, [channelName, members]);
 
   return (
     <div className="messaging__channel-header">
-      {getAvatarGroup(otherMembers)}
-      <div className="channel-header__name">{title}</div>
+      {getAvatarGroup(members)}
+      {!isEditing ? (
+        <div className="channel-header__name">{title}</div>
+      ) : (
+        <input
+          className="channel-header__edit-input"
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Type a new name for the chat"
+          ref={inputRef}
+          value={text}
+          onSubmit={() => console.log('submitted')}
+        />
+      )}
       <div className="messaging__channel-header__right">
         <TypingIndicator />
+        <ChannelEditIcon {...{ setIsEditing }} />
       </div>
     </div>
   );

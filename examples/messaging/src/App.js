@@ -16,7 +16,6 @@ import './App.css';
 
 import {
   CreateChannel,
-  EmptyStateMessage,
   MessagingChannelHeader,
   MessagingChannelList,
   MessagingChannelPreview,
@@ -65,10 +64,7 @@ const App = () => {
         />
         <Window>
           <MessagingChannelHeader />
-          <MessageList
-            TypingIndicator={() => null}
-            EmptyStateIndicator={EmptyStateMessage}
-          />
+          <MessageList TypingIndicator={() => null} />
           <MessageInput focus Input={MessagingInput} />
         </Window>
         <Thread

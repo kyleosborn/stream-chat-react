@@ -18,6 +18,31 @@ body {
   height: 100%;
 }
 
+.messaging.str-chat.dark .str-chat__list {
+  padding: 0 30px 0;
+  background: #282a2d;
+}
+
+.str-chat-channel.messaging .str-chat__main-panel {
+  padding: 20px 20px 0 0px;
+}
+
+.str-chat-channel.messaging .str-chat__main-panel:not(:last-child) {
+  padding: 20px 0 0 0px;
+}
+
+.str-chat-channel.messaging
+  .str-chat__main-panel:not(:last-child)
+  .messaging__channel-header {
+  border-radius: 10px 0px 0px 0px;
+}
+
+.str-chat__message-simple-status {
+  display: none;
+}
+
+/*  THREAD STYLES */
+
 .messaging.str-chat .str-chat__thread-header {
   border: none;
   background: white;
@@ -25,11 +50,6 @@ body {
   min-height: 64px;
   box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.03), 0px 1px 0px rgba(0, 0, 0, 0.03);
   transform: matrix(1, 0, 0, 1, 0, 0);
-}
-
-.messaging.str-chat.dark .str-chat__list {
-  padding: 0 30px 0;
-  background: #282a2d;
 }
 
 .messaging.str-chat.dark .str-chat__thread {
@@ -51,6 +71,7 @@ body {
 .messaging.str-chat .str-chat__thread-list .str-chat__message {
   padding-left: 20px;
   padding-right: 20px;
+  margin-bottom: 0px;
 }
 
 .str-chat__thread-list .str-chat__list.str-chat__list--thread {
@@ -78,6 +99,16 @@ body {
 
 .str-chat__thread-header-details strong {
   margin-right: 10px;
+  font-size: 15px;
+}
+
+.str-chat__thread-header-details small {
+  font-size: 12px;
+  opacity: 50%;
+}
+
+.str-chat__thread .str-chat__messaging-input {
+  margin-top: 0px !important;
 }
 
 .messaging.str-chat .str-chat__thread-header {
@@ -119,22 +150,4 @@ body {
 .str-chat__thread .str-chat__messaging-input {
   margin-top: 10px;
   box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.04);
-}
-
-.str-chat-channel.messaging .str-chat__main-panel {
-  padding: 20px 20px 0 0px;
-}
-
-.str-chat-channel.messaging .str-chat__main-panel:not(:last-child) {
-  padding: 20px 0 0 0px;
-}
-
-.str-chat-channel.messaging
-  .str-chat__main-panel:not(:last-child)
-  .messaging__channel-header {
-  border-radius: 10px 0px 0px 0px;
-}
-
-.str-chat__message-simple-status {
-  display: none;
 }

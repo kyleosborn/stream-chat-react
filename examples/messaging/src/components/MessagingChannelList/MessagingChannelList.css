@@ -64,3 +64,8 @@
 .str-chat__load-more-button {
   display: none;
 }
+
+.messaging__channel-list__header__button:focus {
+  border: none;
+  outline: none;
+}

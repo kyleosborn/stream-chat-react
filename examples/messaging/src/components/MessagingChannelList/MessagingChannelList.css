@@ -44,7 +44,6 @@
   margin-left: auto;
   cursor: pointer;
   background: #ffffff;
-  filter: drop-shadow(0px 5px 9px rgba(0, 95, 255, 0.15));
   border-radius: 20px;
   margin-right: 20px;
 }

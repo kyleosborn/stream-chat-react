@@ -32,13 +32,88 @@ body {
   background: #282a2d;
 }
 
-.messaging.str-chat .str-chat__thread {
+.messaging.str-chat.dark .str-chat__thread {
   border-left: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: 0px 10px 0 0;
+  background: #282a2d;
 }
 
-.str-chat__thread-list {
+.str-chat__thread .str-chat__messaging-input {
+  background: none !important;
+}
+
+.messaging.str-chat .str-chat__thread-list {
   height: unset;
+  padding: 0;
+  padding-top: 20px;
+}
+
+.messaging.str-chat .str-chat__thread-list .str-chat__message {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.str-chat__thread-list .str-chat__list.str-chat__list--thread {
+  padding: 0 !important;
+}
+
+.str-chat__thread-list .str-chat__li.str-chat__li--top {
+  margin-top: 0;
+}
+
+.str-chat__thread-list .str-chat__message:first-of-type {
+  border-bottom: 1px solid #212326;
+  padding-bottom: 20px;
+}
+
+.str-chat__thread-list li .str-chat__message:first-of-type {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.str-chat__thread-header-details {
+  display: flex;
+  align-items: center;
+}
+
+.str-chat__thread-header-details strong {
+  margin-right: 10px;
+}
+
+.messaging.str-chat .str-chat__thread-header {
+  height: 60px !important;
+  min-height: 0px;
+}
+
+.messaging.str-chat .str-chat__thread-header .str-chat__square-button {
+  margin: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.messaging.str-chat .str-chat__thread-header .str-chat__square-button:focus {
+  border: none;
+  outline: none;
+}
+
+.messaging.str-chat .str-chat__thread-header .str-chat__square-button:hover {
+  border: 1px solid #006cff;
+}
+
+.str-chat__message-replies-count-button:focus {
+  border: none;
+  outline: none;
+}
+
+.str-chat__thread-start {
+  display: none;
+}
+
+.messaging.str-chat .str-chat__thread-list .str-chat__reverse-infinite-scroll {
+  padding-top: 20px;
 }
 
 .str-chat__thread .str-chat__messaging-input {

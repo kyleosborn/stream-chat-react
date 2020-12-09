@@ -99,7 +99,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 250px;
+}
+
+.team-message-input__icons div:first-child {
+  margin: 0 5px;
+}
+
+.team-message-input__icons div:nth-child(3) {
+  margin-left: 5px;
+}
+
+.team-message-input__icons svg {
+  width: 36px;
 }
 
 .team-message-input__icons svg:hover path {

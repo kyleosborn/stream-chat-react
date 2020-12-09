@@ -18,7 +18,7 @@ import {
   BoldIcon,
   CodeSnippet,
   ItalicsIcon,
-  LightningBolt,
+  // LightningBolt,
   LightningBoltSmall,
   SendButton,
   SmileyFace,
@@ -166,26 +166,26 @@ export const TeamMessageInput = (props) => {
     ],
   );
 
-  const onCommandClick = (event) => {
-    event.preventDefault();
-    messageInput.textareaRef.current.focus();
+  // const onCommandClick = (event) => {
+  //   event.preventDefault();
+  //   messageInput.textareaRef.current.focus();
 
-    messageInput.textareaRef.current.addEventListener('change', () => {
-      messageInput.textareaRef.current.textContent = '/';
-    });
+  //   messageInput.textareaRef.current.addEventListener('change', () => {
+  //     messageInput.textareaRef.current.textContent = '/';
+  //   });
 
-    const newEvent = new Event('change', { bubbles: true });
+  //   const newEvent = new Event('change', { bubbles: true });
 
-    messageInput.textareaRef.current.dispatchEvent(newEvent);
+  //   messageInput.textareaRef.current.dispatchEvent(newEvent);
 
-    const dispatchedEvent = {
-      ...newEvent,
-      preventDefault: () => null,
-      target: { value: '/' },
-    };
+  //   const dispatchedEvent = {
+  //     ...newEvent,
+  //     preventDefault: () => null,
+  //     target: { value: '/' },
+  //   };
 
-    messageInput.handleChange(dispatchedEvent);
-  };
+  //   messageInput.handleChange(dispatchedEvent);
+  // };
 
   const GiphyIcon = () => (
     <div className="giphy-icon__wrapper">
@@ -244,7 +244,7 @@ export const TeamMessageInput = (props) => {
           <div className="team-message-input__bottom">
             <div className="team-message-input__icons">
               <SmileyFace openEmojiPicker={messageInput.openEmojiPicker} />
-              <LightningBolt {...{ giphyState, onCommandClick }} />
+              {/* <LightningBolt {...{ giphyState, onCommandClick }} /> */}
               <div className="icon-divider"></div>
               <BoldIcon {...{ boldState, resetIconState, setBoldState }} />
               <ItalicsIcon

@@ -260,3 +260,27 @@ body {
   border: none;
   outline: none;
 }
+
+.str-chat__reaction-selector {
+  border-radius: 16px;
+  height: 56px;
+}
+
+.str-chat.dark .str-chat__reaction-selector {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.0001) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15), 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.str-chat__reaction-selector li {
+  font-size: 24px;
+}
+
+.str-chat__reaction-selector li span span {
+  height: 24px !important;
+  width: 24px !important;
+}

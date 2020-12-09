@@ -11,7 +11,7 @@ import {
 import './MessagingInput.css';
 
 import {
-  CommandIcon,
+  // CommandIcon,
   EmojiIcon,
   LightningBoltSmall,
   SendIcon,
@@ -80,13 +80,13 @@ const MessagingInput = (props) => {
     [giphyState, messageInput],
   );
 
-  const onClickCommand = () => {
-    messageInput.textareaRef.current.focus();
-    messageInput.handleChange({
-      target: { value: '/' },
-      preventDefault: () => null,
-    });
-  };
+  // const onClickCommand = () => {
+  //   messageInput.textareaRef.current.focus();
+  //   messageInput.handleChange({
+  //     target: { value: '/' },
+  //     preventDefault: () => null,
+  //   });
+  // };
 
   return (
     <div className="str-chat__messaging-input">
@@ -99,14 +99,14 @@ const MessagingInput = (props) => {
       >
         <EmojiIcon />
       </div>
-      <div
+      {/* <div
         className="messaging-input__button"
         role="button"
         aria-roledescription="button"
         onClick={onClickCommand}
       >
         <CommandIcon />
-      </div>
+      </div> */}
       <ImageDropzone
         accept={acceptedFiles}
         handleFiles={messageInput.uploadNewFiles}

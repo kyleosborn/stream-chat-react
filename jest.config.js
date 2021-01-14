@@ -21,4 +21,7 @@ module.exports = {
     'mock-builders(.*)$': '<rootDir>/src/mock-builders$1',
   },
   setupFiles: ['core-js'],
+  globals: {
+    ICAL: {},
+  },
 };
